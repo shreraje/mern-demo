@@ -32,11 +32,12 @@ const AddTodo = () => {
             <h3>Add a new todo!</h3>
             <form onSubmit={addTodo}>
                 <input 
-                type="text"
-                name="text"
-                value={todoValue}
-                onChange={(e) => setTodoValue(e.target.value)}
+                    type="text"
+                    name="text"
+                    value={todoValue}
+                    onChange={(e) => setTodoValue(e.target.value)}
                 />
+                <button>Add Todo</button>
             </form>
         </div>
     );

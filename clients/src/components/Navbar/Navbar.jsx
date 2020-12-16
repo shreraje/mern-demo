@@ -11,21 +11,21 @@ const Navbar = () => {
 
         <ul className="Navbar-links">
             <li className="Navbar-link">
-                <link to="/">
+                <Link to="/">
                     Homepage
-                </link>
+                </Link>
             </li>
 
             <li className="Navbar-link">
-                <link to="/todos">
+                <Link to="/todos">
                     View Todos
-                </link>
+                </Link>
             </li>
 
             <li className="Navbar-link">
-                <link to="/todo/new">
+                <Link to="/todos/new">
                     Add Todo
-                </link>
+                </Link>
             </li>
         </ul>
         </nav >
