@@ -1,55 +1,50 @@
 const router = require('express').Router();
-const Todo = require('../models');
+const { Todo } = require('../models');
 
-//restful api
-//api/todos
+// restful api
+// /api/todo/
 router
-.route('/')
-.get((req, res) => {
-
+  .route('/')
+  .get((req, res) => {
     Todo
-    .find({})
-    .then(data => {
+      .find({})
+      .then(data => {
         res.json({ success: true, data });
-    })
-    .catch(err => {
+      })
+      .catch(err => {
         res.json({ success: false });
-    });
-})
-
-.post((req, res) => {
-    console.log({reqBody: req.body });
+      });
+  })
+  .post((req, res) => {
+    console.log({ reqBody: req.body });
 
     Todo
-        .create({
-            text: req.body.text
-        })
-        .then(data => {
-            console.log ({ data });
-            res.json({ success: true, data });
-        })
-        .catch(err => {
-            console.log ({ err });
-            res.json({ success: false });
-        })
-});
+      .create({
+        text: req.body.text
+      })
+      .then(data => {
+        res.json({ success: true, data });
+      })
+      .catch(err => {
+        res.json({ success: false });
+      });
+  });
 
-//api/todo/:id
+
+// /api/todo/:id
 router
-.route('/:id')
-.delete((req, res) => {
+  .route('/:id')
+  .delete((req, res) => {
     console.log(req.params);
 
     Todo
-    .findByIdAndDelete(req.params.id)
-    .then(data => {
-        res.json({ success: true, data });
-    })
-    .catch(err => {
-        console.log ({ err });
+      .findByIdAndDelete(req.params.id)
+      .then(data => {
+        res.json({ success: true });
+      })
+      .catch(err => {
         res.json({ success: false });
-    });
-});
+      });
+  });
 
 module.exports = router;
-
